@@ -1,22 +1,37 @@
+/* ==========================================
+   LUMACA'S REFUGIUM
+   Alpha 0.2
+========================================== */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
 
-    background:#111;
+    background:#0a0a0a;
+    color:#fff;
 
-    color:white;
+    font-family:'Rajdhani',sans-serif;
 
-    font-family:Arial, Helvetica, sans-serif;
+    overflow-x:hidden;
 
 }
 
+/* ---------------- HEADER ---------------- */
+
 header{
 
-    position:absolute;
+    position:fixed;
+
+    top:0;
+    left:0;
 
     width:100%;
 
@@ -26,19 +41,44 @@ header{
 
     align-items:center;
 
-    padding:25px 60px;
+    padding:12px 50px;
+    height:72px;
+    background:rgba(8,8,8,.55);
 
-    z-index:100;
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(255,140,0,.15);
+
+    z-index:999;
+
+    transition:.4s;
 
 }
 
 .logo{
 
-    font-size:30px;
+    font-size:34px;
 
-    font-weight:bold;
+    font-weight:700;
+
+    letter-spacing:2px;
 
     color:#ff8c00;
+
+    text-transform:uppercase;
+
+    text-shadow:
+        0 0 12px rgba(255,140,0,.6);
+
+}
+
+nav{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:35px;
 
 }
 
@@ -48,9 +88,15 @@ nav a{
 
     text-decoration:none;
 
-    margin-left:30px;
+    font-size:19px;
 
-    transition:.3s;
+    font-weight:600;
+
+    letter-spacing:1px;
+
+    transition:.35s;
+
+    position:relative;
 
 }
 
@@ -60,74 +106,304 @@ nav a:hover{
 
 }
 
+nav a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+
+    bottom:-6px;
+
+    width:0;
+
+    height:2px;
+
+    background:#ff8900;
+
+    transition:.35s;
+
+}
+
+nav a:hover::after{
+
+    width:100%;
+
+}
+
+/* ---------------- HERO ---------------- */
+
 .hero{
+
+    width:100%;
     height:100vh;
 
-    background-image: url("assets/images/landingpage.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image:url("assets/images/landingpage.png");
+    background-size:cover;
 
-    position: relative;
+    /* vorher war center */
+    background-position:center 80px;
+
+    background-repeat:no-repeat;
+
+    position:relative;
+
 }
 
 .overlay{
 
-    background:rgba(0,0,0,.35);
-
     width:100%;
+
     height:100%;
+
+    background:linear-gradient(
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.75)
+    );
 
     display:flex;
 
-    flex-direction:column;
-
     justify-content:center;
 
-    align-items:center;
+    align-items:flex-end;
+
+}
+
+/* ---------------- BUTTON ---------------- */
+
+.hero-bottom{
+
+    margin-bottom:70px;
 
     text-align:center;
 
 }
 
-h1{
+.terminal-btn{
 
-    font-size:70px;
-
-    margin-bottom:20px;
-
-}
-
-p{
-
-    font-size:24px;
-
-    max-width:700px;
-
-}
-
-button{
-
-    margin-top:40px;
-
-    padding:18px 45px;
-
-    background:#ff8c00;
+    background:#ff8900;
 
     color:white;
 
     border:none;
 
-    font-size:20px;
+    padding:18px 50px;
+
+    font-size:22px;
+
+    font-family:'Rajdhani',sans-serif;
+
+    font-weight:bold;
+
+    border-radius:8px;
 
     cursor:pointer;
 
-    transition:.3s;
+    transition:.35s;
+
+    box-shadow:
+    0 0 18px rgba(255,136,0,.45);
+
+    animation:pulse 2s infinite;
 
 }
 
-button:hover{
+.terminal-btn:hover{
 
-    transform:scale(1.08);
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 0 35px rgba(255,136,0,.85);
+
+}
+
+@keyframes pulse{
+
+    0%{
+
+        box-shadow:0 0 10px rgba(255,136,0,.3);
+
+    }
+
+    50%{
+
+        box-shadow:0 0 30px rgba(255,136,0,.9);
+
+    }
+
+    100%{
+
+        box-shadow:0 0 10px rgba(255,136,0,.3);
+
+    }
+
+}
+
+/* ---------------- ALPHA ---------------- */
+
+.alpha{
+
+    margin-top:18px;
+
+    color:#ddd;
+
+    font-size:17px;
+
+    letter-spacing:2px;
+
+}
+
+/* ---------------- SCROLL ---------------- */
+
+.scroll{
+
+    margin-top:40px;
+
+    color:white;
+
+    font-size:18px;
+
+    animation:bounce 2s infinite;
+
+    opacity:.8;
+
+}
+
+@keyframes bounce{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+    }
+
+    50%{
+
+        transform:translateY(10px);
+
+    }
+
+}
+
+/* ---------------- CONTENT ---------------- */
+
+.welcome{
+
+    padding:120px 30px;
+
+    background:#111;
+
+}
+
+.content{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+.content h2{
+
+    color:#ff8900;
+
+    font-size:48px;
+
+    margin-bottom:30px;
+
+}
+
+.content p{
+
+    font-size:22px;
+
+    line-height:1.8;
+
+    color:#ddd;
+
+}
+
+/* ---------------- FOOTER ---------------- */
+
+footer{
+
+    background:#090909;
+
+    color:#777;
+
+    text-align:center;
+
+    padding:30px;
+
+    border-top:1px solid #222;
+
+}
+
+/* ---------------- MOBILE ---------------- */
+
+@media(max-width:1000px){
+
+header{
+
+    flex-direction:column;
+
+    padding:20px;
+
+}
+
+nav{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin-top:15px;
+
+}
+
+.logo{
+
+    font-size:26px;
+
+}
+
+.terminal-btn{
+
+    font-size:18px;
+
+    padding:15px 35px;
+
+}
+
+.content h2{
+
+    font-size:34px;
+
+}
+
+.content p{
+
+    font-size:18px;
+
+}
+
+}
+body{
+
+    opacity:0;
+
+    transition:opacity .8s ease;
+
+}
+
+body.loaded{
+
+    opacity:1;
 
 }
