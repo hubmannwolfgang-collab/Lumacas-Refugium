@@ -1,7 +1,7 @@
-/* ==========================================
+/* =====================================================
    LUMACA'S REFUGIUM
-   Alpha 0.2
-========================================== */
+   Alpha 0.5
+===================================================== */
 
 *{
     margin:0;
@@ -15,16 +15,19 @@ html{
 
 body{
 
-    background:#0a0a0a;
-    color:#fff;
-
     font-family:'Rajdhani',sans-serif;
+
+    background:#090909;
+
+    color:#fff;
 
     overflow-x:hidden;
 
 }
 
-/* ---------------- HEADER ---------------- */
+/* =========================
+        HEADER
+========================= */
 
 header{
 
@@ -35,48 +38,43 @@ header{
 
     width:100%;
 
+    height:82px;
+
     display:flex;
 
     justify-content:space-between;
 
     align-items:center;
 
-    padding:12px 50px;
-    height:72px;
-    background:rgba(8,8,8,.55);
+    padding:0 55px;
+
+    background:rgba(0,0,0,.45);
 
     backdrop-filter:blur(12px);
 
     border-bottom:1px solid rgba(255,140,0,.15);
 
-    z-index:999;
-
-    transition:.4s;
+    z-index:9999;
 
 }
 
 .logo{
 
-    font-size:34px;
+    font-size:20px;
 
     font-weight:700;
 
     letter-spacing:2px;
 
-    color:#ff8c00;
+    color:#ff9800;
 
     text-transform:uppercase;
-
-    text-shadow:
-        0 0 12px rgba(255,140,0,.6);
 
 }
 
 nav{
 
     display:flex;
-
-    align-items:center;
 
     gap:35px;
 
@@ -88,11 +86,9 @@ nav a{
 
     text-decoration:none;
 
-    font-size:19px;
+    font-size:18px;
 
     font-weight:600;
-
-    letter-spacing:1px;
 
     transition:.35s;
 
@@ -100,9 +96,10 @@ nav a{
 
 }
 
-nav a:hover{
+nav a:hover,
+nav a.active{
 
-    color:#ff8c00;
+    color:#ff9800;
 
 }
 
@@ -114,160 +111,218 @@ nav a::after{
 
     left:0;
 
-    bottom:-6px;
+    bottom:-8px;
 
     width:0;
 
     height:2px;
 
-    background:#ff8900;
+    background:#ff9800;
 
-    transition:.35s;
+    transition:.3s;
 
 }
 
-nav a:hover::after{
+nav a:hover::after,
+nav a.active::after{
 
     width:100%;
 
 }
 
-/* ---------------- HERO ---------------- */
+/* =========================
+          HERO
+========================= */
 
 .hero{
 
+    position:relative;
+
     width:100%;
+
     height:100vh;
 
-    background-image:url("assets/images/landingpage.png");
+    overflow:hidden;
+
+}
+
+.hero-image{
+
+    position:absolute;
+
+    inset:0;
+
+    background:url("assets/images/landingpage2.png");
+
     background-size:cover;
 
-    /* vorher war center */
-    background-position:center 80px;
+    background-position:center;
 
-    background-repeat:no-repeat;
+    animation:heroZoom 28s ease-in-out infinite alternate;
 
-    position:relative;
+}
+
+@keyframes heroZoom{
+
+    from{
+
+        transform:scale(1);
+
+    }
+
+    to{
+
+        transform:scale(1.08);
+
+    }
 
 }
 
 .overlay{
 
-    width:100%;
+    position:absolute;
+
+    inset:0;
+
+    background:linear-gradient(
+
+        rgba(0,0,0,.20),
+
+        rgba(0,0,0,.40),
+
+        rgba(0,0,0,.75)
+
+    );
+
+}
+
+.hero-content{
+
+    position:relative;
+
+    z-index:5;
 
     height:100%;
 
-    background:linear-gradient(
-        rgba(0,0,0,.15),
-        rgba(0,0,0,.45),
-        rgba(0,0,0,.75)
-    );
-
     display:flex;
+
+    flex-direction:column;
 
     justify-content:center;
 
-    align-items:flex-end;
-
-}
-
-/* ---------------- BUTTON ---------------- */
-
-.hero-bottom{
-
-    margin-bottom:70px;
+    align-items:center;
 
     text-align:center;
 
+    padding-top:60px;
+
 }
 
-.terminal-btn{
+.subtitle{
 
-    background:#ff8900;
+    color:#ff9800;
 
-    color:white;
+    letter-spacing:6px;
 
-    border:none;
+    font-size:18px;
 
-    padding:18px 50px;
+    margin-bottom:25px;
+
+}
+
+.hero h1{
+
+    font-size:92px;
+
+    font-weight:700;
+
+    text-shadow:
+
+        0 0 30px rgba(0,0,0,.65);
+
+}
+
+.hero h2{
+
+    margin-top:18px;
+
+    font-size:30px;
+
+    font-weight:500;
+
+}
+
+.hero p{
+
+    margin-top:55px;
 
     font-size:22px;
 
-    font-family:'Rajdhani',sans-serif;
+    line-height:1.7;
 
-    font-weight:bold;
+    color:#ddd;
+
+}
+
+/* =========================
+          BUTTON
+========================= */
+
+.start-btn{
+
+    margin-top:60px;
+
+    background:#ff9800;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:22px 65px;
 
     border-radius:8px;
 
-    cursor:pointer;
+    font-size:24px;
+
+    font-weight:bold;
 
     transition:.35s;
 
     box-shadow:
-    0 0 18px rgba(255,136,0,.45);
 
-    animation:pulse 2s infinite;
+        0 0 25px rgba(255,140,0,.5);
 
 }
 
-.terminal-btn:hover{
+.start-btn:hover{
 
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 
     box-shadow:
-    0 0 35px rgba(255,136,0,.85);
+
+        0 0 40px rgba(255,140,0,.9);
 
 }
 
-@keyframes pulse{
-
-    0%{
-
-        box-shadow:0 0 10px rgba(255,136,0,.3);
-
-    }
-
-    50%{
-
-        box-shadow:0 0 30px rgba(255,136,0,.9);
-
-    }
-
-    100%{
-
-        box-shadow:0 0 10px rgba(255,136,0,.3);
-
-    }
-
-}
-
-/* ---------------- ALPHA ---------------- */
+/* =========================
+       ALPHA / SCROLL
+========================= */
 
 .alpha{
 
-    margin-top:18px;
+    margin-top:30px;
 
     color:#ddd;
 
-    font-size:17px;
-
-    letter-spacing:2px;
+    letter-spacing:3px;
 
 }
-
-/* ---------------- SCROLL ---------------- */
 
 .scroll{
 
     margin-top:40px;
 
-    color:white;
-
-    font-size:18px;
-
     animation:bounce 2s infinite;
-
-    opacity:.8;
 
 }
 
@@ -281,75 +336,23 @@ nav a:hover::after{
 
     50%{
 
-        transform:translateY(10px);
+        transform:translateY(12px);
 
     }
 
 }
 
-/* ---------------- CONTENT ---------------- */
+/* =========================
+        RESPONSIVE
+========================= */
 
-.welcome{
-
-    padding:120px 30px;
-
-    background:#111;
-
-}
-
-.content{
-
-    max-width:1100px;
-
-    margin:auto;
-
-    text-align:center;
-
-}
-
-.content h2{
-
-    color:#ff8900;
-
-    font-size:48px;
-
-    margin-bottom:30px;
-
-}
-
-.content p{
-
-    font-size:22px;
-
-    line-height:1.8;
-
-    color:#ddd;
-
-}
-
-/* ---------------- FOOTER ---------------- */
-
-footer{
-
-    background:#090909;
-
-    color:#777;
-
-    text-align:center;
-
-    padding:30px;
-
-    border-top:1px solid #222;
-
-}
-
-/* ---------------- MOBILE ---------------- */
-
-@media(max-width:1000px){
+@media(max-width:900px){
 
 header{
 
     flex-direction:column;
+
+    height:auto;
 
     padding:20px;
 
@@ -361,49 +364,34 @@ nav{
 
     justify-content:center;
 
-    gap:18px;
-
     margin-top:15px;
 
 }
 
-.logo{
+.hero h1{
 
-    font-size:26px;
-
-}
-
-.terminal-btn{
-
-    font-size:18px;
-
-    padding:15px 35px;
+    font-size:58px;
 
 }
 
-.content h2{
+.hero h2{
 
-    font-size:34px;
+    font-size:24px;
 
 }
 
-.content p{
+.hero p{
 
     font-size:18px;
 
 }
 
+.start-btn{
+
+    font-size:20px;
+
+    padding:18px 45px;
+
 }
-body{
-
-    opacity:0;
-
-    transition:opacity .8s ease;
-
-}
-
-body.loaded{
-
-    opacity:1;
 
 }
