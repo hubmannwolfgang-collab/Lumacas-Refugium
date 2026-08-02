@@ -489,7 +489,55 @@ header{
 
 .logo{
 
-    font-size:24px;
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    font-size:34px;
+
+    font-weight:700;
+
+    letter-spacing:2px;
+
+    color:#ff9800;
+
+    text-transform:uppercase;
+
+    text-shadow:
+
+        0 0 18px rgba(255,150,0,.45);
+
+}
+
+.logo img{
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    box-shadow:
+
+        0 0 18px rgba(255,140,0,.35);
+
+    transition:.35s;
+
+}
+
+.logo:hover img{
+
+    transform:rotate(-8deg) scale(1.08);
+
+}
+
+.logo span{
+
+    display:block;
 
 }
 
