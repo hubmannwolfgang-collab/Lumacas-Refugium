@@ -61,21 +61,21 @@ nav a:hover{
 }
 
 .hero{
-
     height:100vh;
 
-    background:url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1920") center center;
+    background-image: url("assets/images/landingpage.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
-    background-size:cover;
-
+    position: relative;
 }
 
 .overlay{
 
-    background:rgba(0,0,0,.65);
+    background:rgba(0,0,0,.35);
 
     width:100%;
-
     height:100%;
 
     display:flex;
