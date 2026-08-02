@@ -1,7 +1,7 @@
 /* =====================================================
    LUMACA'S REFUGIUM
-   Alpha 0.5
-===================================================== */
+   ALPHA 0.6
+=====================================================*/
 
 *{
     margin:0;
@@ -15,19 +15,19 @@ html{
 
 body{
 
-    font-family:'Rajdhani',sans-serif;
-
     background:#090909;
 
     color:#fff;
+
+    font-family:'Rajdhani',sans-serif;
 
     overflow-x:hidden;
 
 }
 
-/* =========================
-        HEADER
-========================= */
+/* ============================
+            HEADER
+============================= */
 
 header{
 
@@ -38,7 +38,7 @@ header{
 
     width:100%;
 
-    height:82px;
+    height:90px;
 
     display:flex;
 
@@ -46,21 +46,23 @@ header{
 
     align-items:center;
 
-    padding:0 55px;
+    padding:0 70px;
 
-    background:rgba(0,0,0,.45);
+    background:rgba(8,8,8,.45);
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(18px);
 
-    border-bottom:1px solid rgba(255,140,0,.15);
+    border-bottom:1px solid rgba(255,140,0,.18);
 
     z-index:9999;
+
+    transition:.35s;
 
 }
 
 .logo{
 
-    font-size:20px;
+    font-size:34px;
 
     font-weight:700;
 
@@ -70,13 +72,21 @@ header{
 
     text-transform:uppercase;
 
+    text-shadow:
+
+        0 0 18px rgba(255,150,0,.45);
+
 }
+
+/* ============================
+          NAVIGATION
+============================= */
 
 nav{
 
     display:flex;
 
-    gap:35px;
+    gap:42px;
 
 }
 
@@ -86,9 +96,11 @@ nav a{
 
     text-decoration:none;
 
-    font-size:18px;
+    font-size:26px;
 
     font-weight:600;
+
+    letter-spacing:1px;
 
     transition:.35s;
 
@@ -96,7 +108,12 @@ nav a{
 
 }
 
-nav a:hover,
+nav a:hover{
+
+    color:#ff9800;
+
+}
+
 nav a.active{
 
     color:#ff9800;
@@ -119,7 +136,7 @@ nav a::after{
 
     background:#ff9800;
 
-    transition:.3s;
+    transition:.35s;
 
 }
 
@@ -130,9 +147,9 @@ nav a.active::after{
 
 }
 
-/* =========================
-          HERO
-========================= */
+/* ============================
+            HERO
+============================= */
 
 .hero{
 
@@ -158,11 +175,11 @@ nav a.active::after{
 
     background-position:center;
 
-    animation:heroZoom 28s ease-in-out infinite alternate;
+    animation:zoom 30s ease-in-out infinite alternate;
 
 }
 
-@keyframes heroZoom{
+@keyframes zoom{
 
     from{
 
@@ -184,17 +201,23 @@ nav a.active::after{
 
     inset:0;
 
-    background:linear-gradient(
+    background:
 
-        rgba(0,0,0,.20),
+    linear-gradient(
 
-        rgba(0,0,0,.40),
+        rgba(0,0,0,.10),
 
-        rgba(0,0,0,.75)
+        rgba(0,0,0,.28),
+
+        rgba(0,0,0,.68)
 
     );
 
 }
+
+/* ============================
+         HERO CONTENT
+============================= */
 
 .hero-content{
 
@@ -222,23 +245,31 @@ nav a.active::after{
 
     color:#ff9800;
 
-    letter-spacing:6px;
+    font-size:28px;
 
-    font-size:18px;
+    letter-spacing:8px;
 
     margin-bottom:25px;
+
+    text-shadow:
+
+        0 0 12px rgba(255,140,0,.45);
 
 }
 
 .hero h1{
 
-    font-size:92px;
+    font-size:145px;
+
+    line-height:.9;
 
     font-weight:700;
 
+    letter-spacing:4px;
+
     text-shadow:
 
-        0 0 30px rgba(0,0,0,.65);
+        0 0 35px rgba(0,0,0,.75);
 
 }
 
@@ -246,9 +277,11 @@ nav a.active::after{
 
     margin-top:18px;
 
-    font-size:30px;
+    font-size:48px;
 
     font-weight:500;
+
+    letter-spacing:3px;
 
 }
 
@@ -256,41 +289,79 @@ nav a.active::after{
 
     margin-top:55px;
 
-    font-size:22px;
+    font-size:34px;
 
     line-height:1.7;
 
-    color:#ddd;
+    color:#e5e5e5;
+
+    max-width:900px;
 
 }
 
-/* =========================
-          BUTTON
-========================= */
+/* ============================
+        START BUTTON
+============================= */
 
 .start-btn{
 
-    margin-top:60px;
+    margin-top:65px;
+
+    padding:24px 85px;
 
     background:#ff9800;
 
-    color:white;
+    color:#fff;
 
     text-decoration:none;
 
-    padding:22px 65px;
+    font-size:32px;
 
-    border-radius:8px;
+    font-weight:700;
 
-    font-size:24px;
+    letter-spacing:2px;
 
-    font-weight:bold;
+    border-radius:10px;
+
+    position:relative;
+
+    overflow:hidden;
 
     transition:.35s;
 
     box-shadow:
 
-        0 0 25px rgba(255,140,0,.5);
+        0 0 30px rgba(255,150,0,.35);
+
+}
+
+.start-btn::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-120%;
+
+    width:70%;
+
+    height:100%;
+
+    background:linear-gradient(
+
+        90deg,
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+    transition:.7s;
 
 }
 
@@ -300,27 +371,47 @@ nav a.active::after{
 
     box-shadow:
 
-        0 0 40px rgba(255,140,0,.9);
+        0 0 40px rgba(255,150,0,.75);
 
 }
 
-/* =========================
-       ALPHA / SCROLL
-========================= */
+.start-btn:hover::before{
+
+    left:150%;
+
+}
+
+/* ============================
+         ALPHA TEXT
+============================= */
 
 .alpha{
 
-    margin-top:30px;
+    margin-top:28px;
 
     color:#ddd;
 
-    letter-spacing:3px;
+    font-size:22px;
+
+    letter-spacing:4px;
+
+    opacity:.85;
 
 }
 
+/* ============================
+        SCROLL INDICATOR
+============================= */
+
 .scroll{
 
-    margin-top:40px;
+    margin-top:45px;
+
+    font-size:24px;
+
+    color:white;
+
+    opacity:.85;
 
     animation:bounce 2s infinite;
 
@@ -342,9 +433,45 @@ nav a.active::after{
 
 }
 
-/* =========================
-        RESPONSIVE
-========================= */
+/* ============================
+      HEADER ON SCROLL
+============================= */
+
+header.scrolled{
+
+    background:rgba(8,8,8,.85);
+
+    backdrop-filter:blur(22px);
+
+    border-bottom:1px solid rgba(255,140,0,.35);
+
+}
+
+/* ============================
+       RESPONSIVE
+============================= */
+
+@media(max-width:1200px){
+
+.hero h1{
+
+    font-size:110px;
+
+}
+
+nav{
+
+    gap:26px;
+
+}
+
+nav a{
+
+    font-size:22px;
+
+}
+
+}
 
 @media(max-width:900px){
 
@@ -352,25 +479,55 @@ header{
 
     flex-direction:column;
 
+    justify-content:center;
+
     height:auto;
 
-    padding:20px;
+    padding:18px;
+
+}
+
+.logo{
+
+    font-size:24px;
 
 }
 
 nav{
 
+    margin-top:18px;
+
     flex-wrap:wrap;
 
     justify-content:center;
 
-    margin-top:15px;
+    gap:18px;
+
+}
+
+nav a{
+
+    font-size:18px;
+
+}
+
+.hero-content{
+
+    padding:120px 20px 0;
+
+}
+
+.subtitle{
+
+    font-size:18px;
+
+    letter-spacing:3px;
 
 }
 
 .hero h1{
 
-    font-size:58px;
+    font-size:60px;
 
 }
 
@@ -382,15 +539,29 @@ nav{
 
 .hero p{
 
-    font-size:18px;
+    font-size:20px;
+
+    margin-top:35px;
 
 }
 
 .start-btn{
 
-    font-size:20px;
+    font-size:22px;
 
-    padding:18px 45px;
+    padding:18px 38px;
+
+}
+
+.alpha{
+
+    font-size:16px;
+
+}
+
+.scroll{
+
+    font-size:18px;
 
 }
 
