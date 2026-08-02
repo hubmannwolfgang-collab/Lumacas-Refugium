@@ -74,13 +74,17 @@ body{
 
 .cursor{
 
-    width:16px;
+    display:inline-block;
 
-    height:30px;
+    width:10px;
 
-    margin-top:8px;
+    height:1.2em;
 
     background:#ff9800;
+
+    vertical-align:middle;
+
+    margin-left:2px;
 
     animation:blink .8s infinite;
 
