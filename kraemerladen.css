@@ -1,0 +1,203 @@
+/* ==========================================
+   Lumacas Krämerladen - Vorschau
+========================================== */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html,
+body{
+
+    width:100%;
+    height:100%;
+
+    overflow:hidden;
+
+    font-family:"Cormorant Garamond",serif;
+
+}
+
+/* ==========================================
+   Hintergrund
+========================================== */
+
+body{
+
+    margin:0;
+
+    background:#111;
+
+    background-image:url("assets/kraemerladen/kraemerladen.png");
+
+    background-repeat:no-repeat;
+
+    background-position:center center;
+
+    background-size:contain;
+
+}
+
+/* ==========================================
+   leichter Schatten
+========================================== */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.18);
+
+}
+
+/* ==========================================
+   Layout
+========================================== */
+
+.preview{
+
+    position:relative;
+
+    width:100%;
+
+    height:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:flex-end;
+
+    padding-bottom:70px;
+
+    z-index:2;
+
+}
+
+/* ==========================================
+   Infobox
+========================================== */
+
+.info-box{
+
+    width:min(720px,90vw);
+
+    background:rgba(18,15,11,.72);
+
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(212,176,94,.45);
+
+    border-radius:18px;
+
+    padding:45px;
+
+    text-align:center;
+
+    box-shadow:
+
+        0 25px 60px rgba(0,0,0,.45);
+
+}
+
+/* ==========================================
+   Überschriften
+========================================== */
+
+.info-box h1{
+
+    font-family:"Cinzel",serif;
+
+    font-size:48px;
+
+    color:#ddb96c;
+
+    margin-bottom:10px;
+
+}
+
+.info-box h2{
+
+    font-family:"Cinzel",serif;
+
+    font-size:28px;
+
+    color:#f4e4b8;
+
+}
+
+/* ==========================================
+   Goldlinie
+========================================== */
+
+.line{
+
+    width:220px;
+
+    height:2px;
+
+    margin:25px auto;
+
+    background:#c89b4c;
+
+}
+
+/* ==========================================
+   Text
+========================================== */
+
+.info-box p{
+
+    font-size:26px;
+
+    color:#f2ead6;
+
+    line-height:1.7;
+
+}
+
+.small{
+
+    margin-top:30px;
+
+    font-style:italic;
+
+    color:#d8c7a1;
+
+}
+
+/* ==========================================
+   Animation
+========================================== */
+
+.info-box{
+
+    animation:fadeUp .8s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(40px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
